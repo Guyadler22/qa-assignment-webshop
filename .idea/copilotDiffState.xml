@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/.eslintrc.json">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/.eslintrc.json" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tests/demoWebShop.spec.js">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/tests/demoWebShop.spec.js" />
+              <option name="originalContent" value="import { test, expect } from '@playwright/test';&#10;import {variables } from './variables.js';&#10;&#10;test.describe('Registration and cart',  () =&gt; {&#10;&#10;    const password = &quot;123456&quot;;&#10;    const email = `123Aaw@gmail.com`;&#10;&#10;    test('Registration and add products', async ({ page}) =&gt; {&#10;&#10;    await test.step('Open website', async () =&gt; {&#10;        await page.goto('https://demowebshop.tricentis.com');&#10;        await expect(page).toHaveTitle('Demo Web Shop');&#10;        });&#10;    await test.step('Register new user', async () =&gt; {&#10;        await page.locator(variables.form.register).getByText(&quot;Register&quot;).click();&#10;        await expect(page).toHaveTitle(/Your Personal Details/);&#10;        });&#10;&#10;    await test.step('Fill registration form', async () =&gt; {&#10;        await page.locator(variables.form.genderMale).click();&#10;        await expect(page.locator(variables.form.genderMale)).toBeChecked();&#10;        await page.locator(variables.form.firstName).fill(&quot;11&quot;);&#10;        await page.locator(variables.form.lastName).fill(&quot;22&quot;);&#10;        await page.locator(variables.form.email).fill(email);&#10;        await page.locator(variables.form.password).fill(password);&#10;        await page.locator(variables.form.confirmPassword).fill(password);&#10;        await expect(await page.locator(variables.form.registerButton)).toBeVisible();&#10;        await page.locator(variables.form.registerButton).click();&#10;        await expect(page.locator('.result')).toHaveText('Your registration completed');&#10;        });&#10;    });&#10;});" />
+              <option name="updatedContent" value="import { test, expect } from '@playwright/test';&#10;import {variables } from './variables.js';&#10;&#10;test.describe('Registration and cart',  () =&gt; {&#10;&#10;    const password = &quot;123456&quot;;&#10;    const email = `123Aaw@gmail.com`;&#10;&#10;    test('Registration and add products', async ({ page}) =&gt; {&#10;&#10;    await test.step('Open website', async () =&gt; {&#10;        await page.goto('https://demowebshop.tricentis.com');&#10;        await expect(page).toHaveTitle('Demo Web Shop');&#10;        });&#10;    await test.step('Register new user', async () =&gt; {&#10;        await page.locator(variables.form.register).getByText(&quot;Register&quot;).click();&#10;        await expect(page).toHaveTitle(/Your Personal Details/);&#10;        });&#10;&#10;    await test.step('Fill registration form', async () =&gt; {&#10;        await page.locator(variables.form.genderMale).click();&#10;        await expect(page.locator(variables.form.genderMale)).toBeChecked();&#10;        await page.locator(variables.form.firstName).fill(&quot;11&quot;);&#10;        await page.locator(variables.form.lastName).fill(&quot;22&quot;);&#10;        await page.locator(variables.form.email).fill(email);&#10;        await page.locator(variables.form.password).fill(password);&#10;        await page.locator(variables.form.confirmPassword).fill(password);&#10;        await expect(await page.locator(variables.form.registerButton)).toBeVisible();&#10;        await page.locator(variables.form.registerButton).click();&#10;        await expect(page.locator('.result')).toHaveText('Your registration completed');&#10;        });&#10;    });&#10;});" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
