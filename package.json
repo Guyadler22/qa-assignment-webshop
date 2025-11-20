@@ -1,0 +1,14 @@
+{
+  "name": "sunflower-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tests/demoWebShop.spec.js",
+  "scripts": {},
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-playwright": "^2.3.0"
+  }
+}
