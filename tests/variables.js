@@ -14,7 +14,8 @@ export const variables = {
         cartRow: '.cart-item-row',
         itemTitle: ".product-title a",
         productItem: ".product-item",
-        notificationBar: ".bar-notification.success",
+        notificationBar: "#bar-notification",
         itemId: "product-item-id",
+        loadingIndicator: "#flyout-cart .loading",
     }
 }

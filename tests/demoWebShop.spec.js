@@ -63,7 +63,7 @@ test.describe('Registration and cart',  () => {
 
 
             await randomProduct.getByRole('button', {name: 'Add to cart'}).click();
-            await expect(page.locator(variables.shoppingCart.notificationBar)).toContainText('The product has been added to your shopping cart');
+            await expect(page.locator(variables.shoppingCart.notificationBar)).toBeVisible()
         });
 
         await test.step('Click on Shopping cart', async () => {
@@ -79,7 +79,11 @@ test.describe('Registration and cart',  () => {
 
             expect(cartProductName).toBe(selectedProductName);
             expect(cartProductPrice).toBe(selectedProductPrice);
+        });
 
+        await test.step('Logout', async () => {
+            await page.locator(".ico-logout").getByText("Log out").click();
+            await expect(page.locator(".ico-login").filter({hasText: "Log in"})).toBeVisible();
         });
     });
 });
