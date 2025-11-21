@@ -25,7 +25,7 @@ test.describe('Registration and cart',  () => {
             await expect(page.locator(variables.form.genderMale)).toBeChecked();
             await page.locator(variables.form.firstName).fill("11");
             await page.locator(variables.form.lastName).fill("22");
-            await page.locator(".inputs").getByLabel("email:").fill(email);
+            await page.locator(variables.form.inputsFields).getByLabel("email:").fill(email);
         });
 
         await test.step('Fill password fields', async () => {
@@ -36,15 +36,17 @@ test.describe('Registration and cart',  () => {
         await test.step('Click on register again', async () => {
             await expect(page.locator(variables.form.registerButton)).toBeVisible();
             await page.locator(variables.form.registerButton).click();
+
+            await expect(page.locator(variables.form.continueButton)).toBeVisible();
             await expect(page.locator(variables.form.registrationResult)).toHaveText('Your registration completed');
         });
 
         await test.step('Click continue', async () => {
-            await page.locator('input[type="button"][value="Continue"]').click();
+            await page.locator(variables.form.continueButton).click();
         });
 
         await test.step('Validate email in header', async () => {
-            await expect(page.locator("a.account").filter({hasText: email})).toHaveText(email);
+            await expect(page.locator(variables.header.userAccount).filter({hasText: email})).toHaveText(email);
         });
 
         await test.step('Click on digital downloads', async () => {
@@ -59,31 +61,31 @@ test.describe('Registration and cart',  () => {
             const randomProduct = products.nth(randomIndex);
 
             selectedProductName = await randomProduct.locator(variables.shoppingCart.itemTitle).innerText();
-            selectedProductPrice = await randomProduct.locator('.prices').innerText();
+            selectedProductPrice = await randomProduct.locator(variables.shoppingCart.productsPrices).innerText();
 
 
             await randomProduct.getByRole('button', {name: 'Add to cart'}).click();
-            await expect(page.locator(variables.shoppingCart.notificationBar)).toBeVisible()
+            await expect(page.locator(variables.header.notificationBar)).toBeVisible()
         });
 
         await test.step('Click on Shopping cart', async () => {
-            await page.locator(".cart-label").getByText('Shopping cart').click();
+            await page.locator(variables.shoppingCart.shoppingCartBTN).getByText('Shopping cart').click();
             await expect(page.getByRole('button',{name: 'checkout'})).toBeVisible();
         });
 
         await test.step('Validate product in cart', async () => {
             const cartRow = page.locator(variables.shoppingCart.cartRow).first();
 
-            const cartProductName = await cartRow.locator('a.product-name').innerText();
-            const cartProductPrice = await cartRow.locator('.product-unit-price').innerText();
+            const cartProductName = await cartRow.locator(variables.shoppingCart.productName).innerText();
+            const cartProductPrice = await cartRow.locator(variables.shoppingCart.unitProductPrice).innerText();
 
             expect(cartProductName).toBe(selectedProductName);
             expect(cartProductPrice).toBe(selectedProductPrice);
         });
 
         await test.step('Logout', async () => {
-            await page.locator(".ico-logout").getByText("Log out").click();
-            await expect(page.locator(".ico-login").filter({hasText: "Log in"})).toBeVisible();
+            await page.locator(variables.header.logOutClass).getByText("Log out").click();
+            await expect(page.locator(variables.header.logInClass).filter({hasText: "Log in"})).toBeVisible();
         });
     });
 });
