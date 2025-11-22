@@ -50,7 +50,7 @@ test.describe('Registration and cart',  () => {
         });
 
         await test.step('Click on digital downloads', async () => {
-            await page.getByRole('link', {name:'digital downloads'}).first().click();
+            await page.getByRole('link', {name:'Digital downloads'}).first().click();
         });
 
         await test.step('Add to cart random product', async () => {
