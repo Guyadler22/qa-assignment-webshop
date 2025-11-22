@@ -76,3 +76,9 @@ The test is considered successful if:
 
 - The test can be executed multiple consecutive times without failures, demonstrating stability and reliability.  
 - No unexpected errors occur during the workflow.
+
+## How to run the tests
+
+1. Clone the repository.
+2. Run `npm install`.
+3. Run `npx playwright test`.
