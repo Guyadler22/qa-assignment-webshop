@@ -17,7 +17,6 @@ export const variables = {
         itemTitle: ".product-title a",
         productItem: ".product-item",
         itemId: "product-item-id",
-        loadingIndicator: "#flyout-cart .loading",
         productsPrices: ".prices",
         shoppingCartBTN: ".cart-label",
         productName: "a.product-name",
